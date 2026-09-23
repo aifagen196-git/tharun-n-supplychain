@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tharun N — Supply Chain Analyst</title>
+<meta name="description" content="Tharun N — Supply Chain Analytics, Inventory Optimization, Demand & Supply Planning, Procurement, Logistics">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,380;9..144,470;9..144,600&family=Fraunces:ital,opsz,wght@1,9..144,470&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#efece2;
+  --paper-2:#e6e2d3;
+  --card:#f7f5ec;
+  --ink:#211d16;
+  --ink-soft:#4c463a;
+  --ink-faint:#8a8271;
+  --rule:#c7bfa9;
+  --rule-strong:#a89d80;
+  --stamp:#a13d24;
+  --route:#2f5c4c;
+  --route-2:#5b6ea8;
+  --accent-rgb:161,61,36;
+  --shadow: 0 1px 0 var(--rule);
+  --font-display:'Fraunces', 'Iowan Old Style', 'Georgia', serif;
+  --font-display-i:'Fraunces', serif;
+  --font-body:'Source Serif 4', 'Georgia', serif;
+  --font-mono:'Space Mono', 'Courier New', monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#181a16;
+    --paper-2:#1f221c;
+    --card:#20231d;
+    --ink:#eae5d6;
+    --ink-soft:#b9b09a;
+    --ink-faint:#7d7666;
+    --rule:#3a3a30;
+    --rule-strong:#4c4b3d;
+    --stamp:#e0704c;
+    --route:#7ec2a4;
+    --route-2:#93a4e0;
+    --accent-rgb:224,112,76;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#181a16;
+  --paper-2:#1f221c;
+  --card:#20231d;
+  --ink:#eae5d6;
+  --ink-soft:#b9b09a;
+  --ink-faint:#7d7666;
+  --rule:#3a3a30;
+  --rule-strong:#4c4b3d;
+  --stamp:#e0704c;
+  --route:#7ec2a4;
+  --route-2:#93a4e0;
+  --accent-rgb:224,112,76;
+  color-scheme: dark;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:rgba(var(--accent-rgb),.25);}
+a{color:inherit;}
+.wrap{max-width:920px;margin:0 auto;padding-inline:24px;}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;text-wrap:balance;margin:0;}
+p{margin:0;}
+ul{margin:0;padding:0;}
+li{list-style:none;}
+
+/* header / masthead */
+.masthead{
+  border-bottom:2px solid var(--ink);
+  padding-block:18px 14px;
+  position:sticky;top:0;
+  background:var(--paper);
+  z-index:50;
+}
+.masthead-row{display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.wordmark{
+  font-family:var(--font-mono);
+  font-weight:700;
+  font-size:1.15rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  display:flex;align-items:baseline;gap:10px;
+}
+.wordmark small{font-weight:400;color:var(--ink-faint);letter-spacing:.08em;}
+.mast-nav{display:flex;gap:22px;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;}
+.mast-nav a{border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color .2s,color .2s;text-decoration:none;color:var(--ink-soft);}
+.mast-nav a:hover{border-color:var(--stamp);color:var(--ink);}
+.mast-tools{display:flex;align-items:center;gap:10px;}
+.theme-btn{
+  font-family:var(--font-mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;
+  border:1px solid var(--ink);background:transparent;color:var(--ink);
+  padding:6px 10px;cursor:pointer;
+}
+.theme-btn:hover{background:var(--ink);color:var(--paper);}
+.burger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;}
+.burger span{width:20px;height:2px;background:var(--ink);}
+.mobile-nav{
+  display:none;
+  border-bottom:1px solid var(--rule);
+  padding-block:14px;
+  flex-direction:column;gap:12px;
+  font-family:var(--font-mono);font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;
+}
+.mobile-nav a{text-decoration:none;color:var(--ink-soft);}
+.mobile-nav.open{display:flex;}
+
+/* hero / manifest header block */
+.hero{padding-block:52px 40px;border-bottom:1px solid var(--rule);}
+.manifest-tag{
+  font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--stamp);margin-bottom:16px;display:flex;align-items:center;gap:10px;
+}
+.manifest-tag::before{content:'';width:22px;height:1px;background:var(--stamp);}
+h1.name{
+  font-size:clamp(2.6rem,7vw,4.4rem);
+  line-height:.98;
+  letter-spacing:-.01em;
+}
+h1.name em{font-style:italic;font-weight:470;color:var(--route);}
+.role-line{
+  font-family:var(--font-mono);font-size:.98rem;color:var(--ink-soft);
+  margin-top:16px;letter-spacing:.02em;
+}
+.lede{
+  font-size:1.12rem;color:var(--ink-soft);max-width:62ch;margin-top:20px;
+}
+.hero-cta{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap;}
+.btn{
+  font-family:var(--font-mono);font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;
+  padding:12px 20px;border:1px solid var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:8px;
+  text-decoration:none;transition:background .2s,color .2s,transform .15s;
+}
+.btn-fill{background:var(--ink);color:var(--paper);}
+.btn-fill:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--stamp);}
+.btn-line{color:var(--ink);}
+.btn-line:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--route);}
+
+/* manifest ledger — stats */
+.ledger{
+  margin-top:44px;
+  border-top:1px solid var(--rule-strong);
+}
+.ledger-row{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding-block:11px;border-bottom:1px dashed var(--rule);
+  font-family:var(--font-mono);font-size:.86rem;
+}
+.ledger-row .k{color:var(--ink-soft);letter-spacing:.03em;}
+.ledger-row .v{font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;}
+
+/* sections */
+section{padding-block:56px;border-bottom:1px solid var(--rule);}
+section:last-of-type{border-bottom:none;}
+.sec-label{
+  font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-faint);margin-bottom:10px;
+}
+.sec-title{font-size:clamp(1.5rem,3vw,2.1rem);margin-bottom:36px;}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* about */
+.about-cols{display:grid;grid-template-columns:1.3fr 1fr;gap:52px;}
+.about-cols p{color:var(--ink-soft);margin-bottom:16px;}
+.about-cols strong{color:var(--ink);font-weight:600;}
+.pull{
+  font-family:var(--font-display-i);font-style:italic;font-size:1.3rem;line-height:1.4;
+  border-left:2px solid var(--stamp);padding-left:20px;color:var(--ink);
+}
+.about-cols .pull{margin-top:6px;}
+
+/* skills as routing table */
+.route-table{width:100%;border-collapse:collapse;}
+.route-table tr{border-bottom:1px solid var(--rule);}
+.route-table tr:first-child{border-top:1px solid var(--rule-strong);}
+.route-table td{padding:14px 10px;vertical-align:top;}
+.route-table td.label{
+  font-family:var(--font-mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--route);white-space:nowrap;width:190px;
+}
+.route-table td.items{color:var(--ink-soft);font-size:.96rem;}
+.route-table td.items b{color:var(--ink);font-weight:600;}
+
+/* experience — manifest log */
+.log-entry{padding-block:30px;border-top:1px solid var(--rule);}
+.log-entry:first-child{border-top:1px solid var(--rule-strong);}
+.log-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 20px;margin-bottom:14px;}
+.log-role{font-family:var(--font-display);font-size:1.35rem;}
+.log-org{font-family:var(--font-mono);font-size:.82rem;color:var(--route);letter-spacing:.02em;}
+.log-date{font-family:var(--font-mono);font-size:.76rem;color:var(--ink-faint);white-space:nowrap;}
+.log-list li{
+  position:relative;padding-left:22px;margin-bottom:9px;color:var(--ink-soft);font-size:.98rem;
+}
+.log-list li::before{content:'—';position:absolute;left:0;color:var(--stamp);font-family:var(--font-mono);}
+.log-list strong{color:var(--ink);font-weight:600;}
+
+/* projects — dossier */
+.dossier-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--rule);}
+.dossier{background:var(--card);padding:26px;}
+.dossier .file-no{font-family:var(--font-mono);font-size:.68rem;color:var(--ink-faint);letter-spacing:.08em;margin-bottom:10px;}
+.dossier h4{font-size:1.2rem;margin-bottom:14px;}
+.dossier ul li{position:relative;padding-left:18px;margin-bottom:9px;color:var(--ink-soft);font-size:.94rem;}
+.dossier ul li::before{content:'·';position:absolute;left:2px;color:var(--route);font-weight:700;}
+
+/* certifications — stamps */
+.stamp-row{display:flex;flex-wrap:wrap;gap:14px;}
+.stamp{
+  border:1px solid var(--rule-strong);
+  padding:14px 18px;
+  font-family:var(--font-mono);font-size:.78rem;color:var(--ink-soft);
+  position:relative;
+  display:flex;align-items:center;gap:10px;
+}
+.stamp .seal{
+  width:28px;height:28px;border-radius:50%;border:1.5px solid var(--stamp);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-style:italic;font-size:.8rem;color:var(--stamp);
+  flex-shrink:0;transform:rotate(-8deg);
+}
+
+/* education */
+.edu-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:baseline;padding-block:16px;border-top:1px solid var(--rule-strong);border-bottom:1px solid var(--rule);}
+.edu-row h4{font-size:1.15rem;}
+.edu-row p{color:var(--ink-soft);font-size:.92rem;margin-top:4px;}
+.edu-row .log-date{align-self:flex-start;}
+
+/* contact — shipping label */
+.label-box{
+  border:2px solid var(--ink);
+  padding:40px 36px;
+  display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end;
+}
+.label-box h2{font-size:clamp(1.6rem,3.4vw,2.3rem);margin-bottom:14px;}
+.label-box p{color:var(--ink-soft);max-width:46ch;}
+.ship-to{font-family:var(--font-mono);font-size:.8rem;color:var(--ink-faint);text-align:right;}
+.contact-lines{display:flex;flex-direction:column;gap:10px;margin-top:20px;}
+.contact-line{
+  font-family:var(--font-mono);font-size:.9rem;display:flex;align-items:center;gap:10px;
+}
+.contact-line .k{color:var(--ink-faint);width:64px;flex-shrink:0;text-transform:uppercase;font-size:.68rem;letter-spacing:.06em;}
+.contact-line .v{color:var(--ink);}
+.copy-btn{
+  font-family:var(--font-mono);font-size:.65rem;border:1px solid var(--rule-strong);background:transparent;color:var(--ink-faint);
+  padding:2px 7px;cursor:pointer;letter-spacing:.04em;
+}
+.copy-btn:hover{border-color:var(--ink);color:var(--ink);}
+
+footer{padding-block:28px;text-align:center;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;color:var(--ink-faint);}
+
+@media (max-width:760px){
+  .mast-nav{display:none;}
+  .burger{display:flex;}
+  .about-cols{grid-template-columns:1fr;gap:28px;}
+  .dossier-grid{grid-template-columns:1fr;}
+  .label-box{grid-template-columns:1fr;}
+  .ship-to{text-align:left;}
+  .route-table td.label{width:auto;display:block;margin-bottom:4px;}
+  .route-table tr{display:block;padding-block:10px;}
+  .route-table td{display:block;padding:2px 0;}
+}
+@media (prefers-reduced-motion: reduce){
+  .reveal{transition:none;opacity:1;transform:none;}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap masthead-row">
+    <div class="wordmark">THARUN N <small>／ SUPPLY CHAIN ANALYST</small></div>
+    <nav class="mast-nav">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#certs">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="mast-tools">
+      <button class="theme-btn" id="themeToggle" type="button" aria-label="Toggle theme">Dark</button>
+      <div class="burger" id="burger" role="button" aria-label="Menu"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+  <nav class="mobile-nav wrap" id="mobileNav">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#certs">Certifications</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="wrap">
+  <section class="hero">
+    <div class="manifest-tag">Waybill No. TN—2026 · Route: IN → US</div>
+    <h1 class="name">Moving goods<br>through <em>data</em>,<br>not guesswork.</h1>
+    <p class="role-line">Supply Chain Analyst — Demand Planning · Procurement · Logistics · Inventory</p>
+    <p class="lede">Five years turning warehouse floors, purchase orders, and freight lanes into forecasts and dashboards that hold up under an actual peak season. Currently at XPO; before that, DHL Supply Chain and Flipkart.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-fill">Get in touch</a>
+      <a href="#experience" class="btn btn-line">Read the record</a>
+    </div>
+    <div class="ledger">
+      <div class="ledger-row"><span class="k">Years in supply chain ops</span><span class="v">5+</span></div>
+      <div class="ledger-row"><span class="k">Forecast accuracy improvement, XPO</span><span class="v">+18%</span></div>
+      <div class="ledger-row"><span class="k">Reporting turnaround cut, dashboards</span><span class="v">−25%</span></div>
+      <div class="ledger-row"><span class="k">Procurement cost reduction, DHL</span><span class="v">−12%</span></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="sec-label">About</div>
+    <h2 class="sec-title">The short version</h2>
+    <div class="about-cols">
+      <div class="reveal">
+        <p>I work the middle of the supply chain — the part between "the forecast says" and "the truck actually showed up." At <strong>XPO</strong> I build the SQL and Python behind demand and replenishment calls, and the Power BI dashboards that let planners see fill rate and OTIF without asking me for a pull.</p>
+        <p>Before that, at <strong>DHL Supply Chain</strong>, I sat inside SAP S/4HANA doing material and supply-demand planning, running RFQ and spend analysis that shaved real cost out of sourcing. Earlier still, at <strong>Flipkart</strong>, I was closer to the floor — inbound and outbound coordination, 3PL scorecards, the operational end of what a dashboard later summarizes.</p>
+        <p>Lean and Six Sigma discipline underneath all of it. I hold a Master's in Computer Science from Texas Tech, which is mostly why the analytics side comes as naturally as the operations side.</p>
+      </div>
+      <div class="reveal">
+        <p class="pull">"A forecast is only as good as the exception report that catches when it's wrong."</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-label">Skills</div>
+    <h2 class="sec-title">Routing table</h2>
+    <table class="route-table reveal">
+      <tbody>
+        <tr><td class="label">Planning</td><td class="items"><b>Demand &amp; supply planning</b>, MRP, S&amp;OP / SIOP, replenishment planning, capacity planning</td></tr>
+        <tr><td class="label">Inventory</td><td class="items">Safety stock, reorder point, fill rate, forecast accuracy (MAPE), XYZ segmentation, excess &amp; obsolete inventory</td></tr>
+        <tr><td class="label">Procurement</td><td class="items">Strategic sourcing, RFQ / RFI, spend analysis, supplier scorecards, supplier risk management</td></tr>
+        <tr><td class="label">Logistics</td><td class="items">Freight analysis, carrier management, 3PL coordination, OTD / OTIF, Incoterms, landed cost</td></tr>
+        <tr><td class="label">Data &amp; BI</td><td class="items"><b>SQL</b>, Python / Pandas, Power BI &amp; DAX, Tableau, advanced Excel, Power Query</td></tr>
+        <tr><td class="label">Systems</td><td class="items">SAP S/4HANA, SAP MM / EWM, Oracle ERP / OTM, Kinaxis, Microsoft Dynamics 365, QAD</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="experience">
+    <div class="sec-label">Experience</div>
+    <h2 class="sec-title">Employment record</h2>
+
+    <div class="log-entry reveal">
+      <div class="log-head">
+        <div><span class="log-role">Supply Chain Analyst</span> — <span class="log-org">XPO, USA</span></div>
+        <div class="log-date">Aug 2024 — Present</div>
+      </div>
+      <ul class="log-list">
+        <li>Analyze supply chain performance with SQL, Python, and Pandas to guide replenishment and planning decisions.</li>
+        <li>Improved forecast reliability by <strong>18%</strong> using MAPE and forecast-bias tracking on replenishment calls.</li>
+        <li>Built Power BI and Tableau dashboards (DAX) for fill rate, service level, and OTIF — cut reporting turnaround by <strong>25%</strong>.</li>
+        <li>Evaluate freight, carrier, and customs/Incoterms activity to keep international logistics visible end to end.</li>
+        <li>Apply root-cause analysis and workflow fixes to clear fulfillment and SLA exceptions.</li>
+      </ul>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-head">
+        <div><span class="log-role">Supply Chain Analyst</span> — <span class="log-org">DHL Supply Chain, India</span></div>
+        <div class="log-date">Jul 2021 — Jul 2023</div>
+      </div>
+      <ul class="log-list">
+        <li>Supported material and supply-demand planning in SAP S/4HANA &amp; SAP MM, lifting inventory utilization by <strong>16%</strong>.</li>
+        <li>Ran procurement analytics — RFQ, RFI, bid and spend analysis — contributing to <strong>12%</strong> lower procurement cost.</li>
+        <li>Consolidated demand and capacity data for the monthly S&amp;OP / SIOP cycle.</li>
+        <li>Maintained material, supplier, and inventory data across SAP EWM, WMS, and ERP systems.</li>
+      </ul>
+    </div>
+
+    <div class="log-entry reveal">
+      <div class="log-head">
+        <div><span class="log-role">Supply Chain Analyst</span> — <span class="log-org">Flipkart, India</span></div>
+        <div class="log-date">Jun 2020 — Jun 2021</div>
+      </div>
+      <ul class="log-list">
+        <li>Coordinated inbound/outbound logistics and 3PL activity, improving on-time shipment performance by <strong>14%</strong>.</li>
+        <li>Tracked supplier scorecards and purchase orders, resolving recurring vendor issues alongside procurement.</li>
+        <li>Built Tableau and Excel reporting on procurement, inventory, and warehouse KPIs, cutting manual effort by <strong>22%</strong>.</li>
+        <li>Worked across Kinaxis, Microsoft Dynamics 365, and QAD for planning and inventory data.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="sec-label">Projects</div>
+    <h2 class="sec-title">Selected work</h2>
+    <div class="dossier-grid reveal">
+      <div class="dossier">
+        <div class="file-no">FILE — DP/01</div>
+        <h4>Demand Forecasting &amp; S&amp;OP Dashboard</h4>
+        <ul>
+          <li>Built demand-forecasting models in Python on historical sales data to sharpen replenishment planning.</li>
+          <li>Interactive Power BI dashboards for demand, inventory health, and forecast accuracy on a SQL data model.</li>
+          <li>Joined procurement, inventory, and sales data into one view for executive decisions.</li>
+        </ul>
+      </div>
+      <div class="dossier">
+        <div class="file-no">FILE — IP/02</div>
+        <h4>Inventory &amp; Procurement Performance Dashboard</h4>
+        <ul>
+          <li>Built a SQL Server analytics layer covering procurement, inventory, and supplier metrics.</li>
+          <li>Dashboards tracking inventory turnover, PO cycle time, supplier lead time, and fulfillment rate.</li>
+          <li>Findings fed directly into inventory optimization and supplier collaboration.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="certs">
+    <div class="sec-label">Certifications</div>
+    <h2 class="sec-title">Seals of record</h2>
+    <div class="stamp-row reveal">
+      <div class="stamp"><span class="seal">CSCP</span>APICS Certified Supply Chain Professional</div>
+      <div class="stamp"><span class="seal">CPSM</span>Certified Professional in Supply Management</div>
+      <div class="stamp"><span class="seal">SAP</span>SAP Certified Associate — S/4HANA Sourcing &amp; Procurement</div>
+      <div class="stamp"><span class="seal">PBI</span>Microsoft Certified: Power BI Data Analyst Associate</div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="sec-label">Education</div>
+    <h2 class="sec-title">Academic record</h2>
+    <div class="edu-row reveal">
+      <div>
+        <h4>Master's in Computer Science</h4>
+        <p>Texas Tech University, Texas, USA</p>
+      </div>
+      <div class="log-date">Aug 2023 — May 2025</div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="sec-label">Contact</div>
+    <h2 class="sec-title">Ship inquiries here</h2>
+    <div class="label-box reveal">
+      <div>
+        <h2>Open to Supply Chain Analyst roles.</h2>
+        <p>Demand planning, procurement analytics, and logistics — happy to talk about roles across e-commerce or manufacturing supply chains.</p>
+        <div class="contact-lines">
+          <div class="contact-line"><span class="k">Email</span><span class="v" id="emailVal">tharun.9175@gmail.com</span><button class="copy-btn" data-copy="tharun.9175@gmail.com">copy</button></div>
+          <div class="contact-line"><span class="k">Phone</span><span class="v" id="phoneVal">+1 (203) 493-7179</span><button class="copy-btn" data-copy="+1 (203) 493-7179">copy</button></div>
+        </div>
+      </div>
+      <div class="ship-to">
+        SHIP TO<br>
+        Connecticut, USA<br>
+        Ref: Supply Chain / Analytics
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>Tharun N — Supply Chain Analytics · Connecticut, USA</footer>
+
+<script>
+(function(){
+  const root = document.documentElement;
+  const btn = document.getElementById('themeToggle');
+  const saved = (function(){ try{ return localStorage.getItem('tn-theme'); }catch(e){ return null; } })();
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  let theme = saved || (prefersDark ? 'dark' : 'light');
+  function apply(t){
+    if(t === 'dark'){ root.setAttribute('data-theme','dark'); btn.textContent = 'Light'; }
+    else { root.setAttribute('data-theme','light'); btn.textContent = 'Dark'; }
+  }
+  apply(theme);
+  btn.addEventListener('click', function(){
+    theme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    apply(theme);
+    try{ localStorage.setItem('tn-theme', theme); }catch(e){}
+  });
+})();
+
+(function(){
+  const burger = document.getElementById('burger');
+  const nav = document.getElementById('mobileNav');
+  burger.addEventListener('click', function(){ nav.classList.toggle('open'); });
+  nav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ nav.classList.remove('open'); }); });
+})();
+
+(function(){
+  const items = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){ items.forEach(function(i){ i.classList.add('visible'); }); return; }
+  const obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, {threshold:0.12});
+  items.forEach(function(i){ obs.observe(i); });
+})();
+
+(function(){
+  document.querySelectorAll('.copy-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      const text = btn.getAttribute('data-copy');
+      const done = function(){ const old = btn.textContent; btn.textContent = 'copied'; setTimeout(function(){ btn.textContent = old; }, 1200); };
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done).catch(function(){
+          const sel = window.getSelection(); const range = document.createRange();
+          range.selectNodeContents(btn.previousElementSibling); sel.removeAllRanges(); sel.addRange(range);
+        });
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
