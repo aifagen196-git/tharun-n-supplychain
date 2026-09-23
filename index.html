@@ -73,7 +73,7 @@ body{
 }
 ::selection{background:rgba(var(--accent-rgb),.25);}
 a{color:inherit;}
-.wrap{max-width:920px;margin:0 auto;padding-inline:24px;}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:clamp(24px,4vw,56px);}
 h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;text-wrap:balance;margin:0;}
 p{margin:0;}
 ul{margin:0;padding:0;}
@@ -95,9 +95,11 @@ li{list-style:none;}
   letter-spacing:.12em;
   text-transform:uppercase;
   display:flex;align-items:baseline;gap:10px;
+  white-space:nowrap;flex-shrink:0;
 }
-.wordmark small{font-weight:400;color:var(--ink-faint);letter-spacing:.08em;}
-.mast-nav{display:flex;gap:22px;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;}
+.wordmark small{font-weight:400;color:var(--ink-faint);letter-spacing:.08em;white-space:nowrap;}
+.masthead-row{flex-wrap:nowrap;}
+.mast-nav{display:flex;gap:clamp(14px,1.8vw,26px);font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;flex-wrap:nowrap;}
 .mast-nav a{border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color .2s,color .2s;text-decoration:none;color:var(--ink-soft);}
 .mast-nav a:hover{border-color:var(--stamp);color:var(--ink);}
 .mast-tools{display:flex;align-items:center;gap:10px;}
@@ -121,6 +123,8 @@ li{list-style:none;}
 
 /* hero / manifest header block */
 .hero{padding-block:52px 40px;border-bottom:1px solid var(--rule);}
+.hero-inner{max-width:780px;}
+.ledger{max-width:640px;}
 .manifest-tag{
   font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
   color:var(--stamp);margin-bottom:16px;display:flex;align-items:center;gap:10px;
@@ -308,6 +312,7 @@ footer{padding-block:28px;text-align:center;font-family:var(--font-mono);font-si
 
 <div class="wrap">
   <section class="hero">
+   <div class="hero-inner">
     <div class="manifest-tag">Waybill No. TN—2026 · Route: IN → US</div>
     <h1 class="name">Moving goods<br>through <em>data</em>,<br>not guesswork.</h1>
     <p class="role-line">Supply Chain Analyst — Demand Planning · Procurement · Logistics · Inventory</p>
@@ -316,6 +321,7 @@ footer{padding-block:28px;text-align:center;font-family:var(--font-mono);font-si
       <a href="#contact" class="btn btn-fill">Get in touch</a>
       <a href="#experience" class="btn btn-line">Read the record</a>
     </div>
+   </div>
     <div class="ledger">
       <div class="ledger-row"><span class="k">Years in supply chain ops</span><span class="v">5+</span></div>
       <div class="ledger-row"><span class="k">Forecast accuracy improvement, XPO</span><span class="v">+18%</span></div>
