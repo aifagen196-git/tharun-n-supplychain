@@ -254,8 +254,9 @@ section:last-of-type{border-bottom:none;}
 .ship-to{font-family:var(--font-mono);font-size:.8rem;color:var(--ink-faint);text-align:right;}
 .contact-lines{display:flex;flex-direction:column;gap:10px;margin-top:20px;}
 .contact-line{
-  font-family:var(--font-mono);font-size:.9rem;display:flex;align-items:center;gap:10px;
+  font-family:var(--font-mono);font-size:.9rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap;
 }
+.contact-line .v{word-break:break-word;}
 .contact-line .k{color:var(--ink-faint);width:64px;flex-shrink:0;text-transform:uppercase;font-size:.68rem;letter-spacing:.06em;}
 .contact-line .v{color:var(--ink);}
 .copy-btn{
@@ -269,6 +270,10 @@ footer{padding-block:28px;text-align:center;font-family:var(--font-mono);font-si
 @media (max-width:760px){
   .mast-nav{display:none;}
   .burger{display:flex;}
+  .masthead-row{flex-wrap:wrap;row-gap:10px;}
+  .wordmark{font-size:1rem;}
+  .wordmark small{display:none;}
+  .mast-tools{margin-left:auto;}
   .about-cols{grid-template-columns:1fr;gap:28px;}
   .dossier-grid{grid-template-columns:1fr;}
   .label-box{grid-template-columns:1fr;}
@@ -276,7 +281,12 @@ footer{padding-block:28px;text-align:center;font-family:var(--font-mono);font-si
   .route-table td.label{width:auto;display:block;margin-bottom:4px;}
   .route-table tr{display:block;padding-block:10px;}
   .route-table td{display:block;padding:2px 0;}
+  .label-box{padding:28px 20px;}
+  .label-box p{max-width:100%;}
+  .contact-line .k{width:auto;}
 }
+* { max-width: 100%; }
+html, body { overflow-x: hidden; }
 @media (prefers-reduced-motion: reduce){
   .reveal{transition:none;opacity:1;transform:none;}
 }
